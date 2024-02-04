@@ -1,0 +1,42 @@
+button {
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: var(--violet);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: #433dbe;
+}
+
+@media only screen and (max-width: 650px) {
+    button {
+        padding: 12px;
+        font-size: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    button {
+        padding: 10px;
+        font-size: 0.7rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    button {
+        padding: 8px;
+        font-size: 0.6rem;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    button {
+        padding: 8px 6px;
+    }
+}

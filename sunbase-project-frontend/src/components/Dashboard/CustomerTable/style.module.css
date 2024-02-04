@@ -1,0 +1,103 @@
+.customer_table {
+    width: 100%;
+    border-top: 1px solid var(--grey);
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.customer_table thead {
+    background-color: var(--darkgrey);
+}
+
+.customer_table tbody {
+    color: var(--grey);
+}
+
+.customer_table tr {
+    height: 50px;
+    width: 100%;
+}
+
+.customer_table td,
+.customer_table th {
+    width: 11%;
+    padding: 0 5px;
+}
+
+.delete_icon {
+    color: var(--red);
+    border: 2px solid var(--red);
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: all 0.5s !important;
+}
+
+.delete_icon:hover {
+    color: var(--black);
+    background-color: var(--red);
+
+}
+
+.edit_icon {
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.5s !important;
+    color: var(--grey);
+}
+
+.edit_icon:hover {
+    opacity: 1;
+    color: var(--white) !important;
+}
+
+@media only screen and (max-width: 1000px) {
+    .customer_table {
+        font-size: 0.8rem;
+    }
+
+    .delete_icon,
+    .edit_icon {
+        font-size: 1.2rem !important;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .customer_table {
+        font-size: 0.7rem;
+    }
+
+    .customer_table td,
+    .customer_table th {
+        width: 9%;
+        padding: 0 2px;
+    }
+
+    .delete_icon,
+    .edit_icon {
+        font-size: 1rem !important;
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .customer_table {
+        font-size: 0.6rem;
+    }
+
+    .delete_icon,
+    .edit_icon {
+        font-size: 0.8rem !important;
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .customer_table {
+        font-size: 0.5rem;
+    }
+
+    .icon_td {
+        display: none !important;
+    }
+}

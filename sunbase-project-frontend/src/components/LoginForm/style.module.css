@@ -1,0 +1,84 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 40px;
+    box-sizing: border-box;
+    background-color: var(--white);
+    width: 350px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0px 5px 6px -1px rgba(0, 0, 0, 0.36);
+    -moz-box-shadow: 0px 5px 6px -1px rgba(0, 0, 0, 0.36);
+    box-shadow: 0px 5px 6px -1px rgba(0, 0, 0, 0.36);
+}
+
+.container>h2 {
+    margin: 0;
+    padding: 0;
+    color: var(--darkgrey);
+}
+
+.input_field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 5px 0px;
+    color: var(--darkgrey);
+    font-size: small;
+}
+
+.input_field>input {
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid var(--grey);
+    padding-left: 10px;
+    outline: none;
+}
+
+.error_message {
+    align-self: center;
+    color: var(--red) !important;
+    font-weight: 600;
+    margin-top: 10px !important;
+}
+
+@media only screen and (max-width: 500px) {
+    .container {
+        width: 300px;
+    }
+
+    .container>h2 {
+        font-size: 1.2rem;
+    }
+
+    .input_field>label {
+        font-size: 0.75rem;
+    }
+
+    .input_field>input {
+        height: 20px;
+    }
+
+    .error_message {
+        font-size: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .container {
+        width: 250px;
+        padding: 25px;
+    }
+
+    .container>h2 {
+        font-size: 1rem;
+    }
+
+    .input_field>label {
+        font-size: 0.7rem;
+    }
+
+    .error_message {
+        font-size: 0.7rem;
+    }
+}

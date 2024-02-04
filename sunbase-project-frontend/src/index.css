@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --violet: #544CF0;
+    --white: #fff;
+    --darkgrey: #333333;
+    --grey: #B9B8B8;
+    --red: #ED1C24;
+    --black: #111;
+    --blue: #3a80e9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: var(--black);
+}
+
+.login-page {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    background-image: url("./assets/background_image2.png");
+    background-size: 100vw 100vh;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-page {
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    width: 100%;
+    color: var(--white);
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+    width: 0.4rem;
+}
+
+/* scrollbar background on which it moves */
+::-webkit-scrollbar-track {
+    background: var(--black);
+}
+
+/* the main scroll */
+::-webkit-scrollbar-thumb {
+    background: var(--grey);
+    border-radius: 40px;
+}

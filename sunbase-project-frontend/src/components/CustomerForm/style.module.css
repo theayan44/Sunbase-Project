@@ -1,0 +1,133 @@
+.form_div {
+    color: var(--grey);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 6rem;
+    padding-left: 10rem;
+    box-sizing: border-box;
+    font-family: "Inter";
+}
+
+.heading {
+    color: var(--white);
+    font-size: 1.5rem;
+    align-self: flex-start;
+    padding-left: 10px;
+}
+
+.customer_form {
+    display: flex;
+    gap: 2rem 3rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    width: 100%;
+
+}
+
+.input_group {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input_group label {
+    font-size: 0.9rem;
+    padding-left: 10px;
+}
+
+.input_group input {
+    width: 100%;
+    background-color: var(--black);
+    color: var(--grey);
+    font-size: 1rem;
+    border: 1px solid var(--darkgrey);
+    padding: 1rem;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+}
+
+.input_group input:focus {
+    outline: none;
+}
+
+.btn_div {
+    align-self: flex-start;
+    margin-top: 1rem;
+
+}
+
+.btn_div * {
+    width: 150px;
+    font-size: 1rem;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .form_div {
+        padding: 6rem 4rem;
+    }
+
+    .input_group {
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .form_div {
+        padding: 5rem 2rem;
+    }
+
+    .customer_form {
+        gap: 1rem;
+
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .form_div {
+        padding: 2rem 1rem;
+    }
+
+    .heading {
+        font-size: 1.2rem;
+    }
+
+    .customer_form {
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .input_group {
+        width: 47%;
+    }
+
+    .input_group label {
+        font-size: 0.7rem;
+        padding-left: 5px;
+    }
+
+    .input_group input {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.8rem;
+    }
+
+    .btn_div * {
+        width: 100px;
+        font-size: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .form_div {
+        padding: 0.5rem;
+    }
+
+    .input_group {
+        width: 46%;
+    }
+
+}
