@@ -7,9 +7,14 @@ const LogoutButton = () => {
     const navigate = useNavigate();
 
     function handleLogout(e) {
+        // check user logged in or not
         if (localStorage.getItem("loginCredentials") !== null) {
+
+            // remove the credentials from localStorage
             localStorage.removeItem("loginCredentials");
             alert("You've been logeed out!");
+
+            // now navigate to login page
             navigate("/", { replace: true });
         }
     }

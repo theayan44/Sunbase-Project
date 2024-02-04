@@ -1,7 +1,7 @@
 import style from "./style.module.css";
 import RemoveRoundedIcon from '@mui/icons-material/RemoveRounded';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { CustomerContext } from "../../../context/CustomerContext";
 import { NavLink } from "react-router-dom";
 
@@ -10,7 +10,9 @@ const CustomerTable = () => {
     const { searchData } = useContext(CustomerContext);
 
     async function deleteCustomer(e, email) {
+        // confirm once before deleting any record
         if (window.confirm("Are you sure want to delete!")) {
+            // if confirm then prepare extra configuration and do api call
             const requestOptions = {
                 method: 'DELETE'
             };
@@ -18,6 +20,7 @@ const CustomerTable = () => {
             const data = await res.json();
             alert(data.message);
 
+            // if record deleted then reload the page for rendering updated data from the database
             if (res.status == 200) {
                 window.location.reload();
             }
@@ -54,6 +57,7 @@ const CustomerTable = () => {
                             <td>{customer.phone}</td>
                             <td className={style.icon_td}>
                                 <RemoveRoundedIcon onClick={(e) => deleteCustomer(e, customer.email)} className={style.delete_icon} />
+                                {/* use edit button as link and redirect to update page with the customer email */}
                                 <NavLink to={`/update/${customer.email}`}><EditRoundedIcon className={style.edit_icon} /></NavLink>
                             </td>
                         </tr>

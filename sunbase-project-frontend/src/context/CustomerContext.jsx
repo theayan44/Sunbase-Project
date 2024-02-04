@@ -1,3 +1,5 @@
+// here we create customer context for storing the data of the database and to avoid prop drilling
+
 import { createContext, useState } from "react";
 
 export const CustomerContext = createContext();

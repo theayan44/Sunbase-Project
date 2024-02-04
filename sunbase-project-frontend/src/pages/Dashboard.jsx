@@ -9,8 +9,11 @@ const Dashboard = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        // check if user logged in or not
         if (localStorage.getItem("loginCredentials") === null) {
             alert("You've to login first!");
+
+            // if not logged in then navigate to login page
             navigate("/", { replace: true });
         } else {
             fetchData();
@@ -18,6 +21,7 @@ const Dashboard = () => {
     }, [])
 
     async function fetchData() {
+        // set config object for handle cors error and then pass in fetch
         const config = {
             headers: {
                 "Access-Control-Allow-Origin": "*",
@@ -26,6 +30,8 @@ const Dashboard = () => {
         };
         const res = await fetch("http://127.0.0.1:8080/customer/get/all", config);
         const data = await res.json();
+
+        // save the data after getting from database
         setCustomerData(data);
         setSearchData(data);
     }

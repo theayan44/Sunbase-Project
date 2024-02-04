@@ -28,14 +28,19 @@ const CustomerForm = ({ update, oldData }) => {
         }
     }, [oldData])
 
+    // operation on submitting the form
     async function handleClick(e) {
         e.preventDefault();
+
+        // check for all values are entered or not
         if (fname.trim().length == 0 || lname.trim().length == 0 || street.trim().length == 0
             || address.trim().length == 0 || city.trim().length == 0 || state.trim().length == 0
             || email.trim().length == 0 || phone.trim().length == 0) {
+            // if all values are not entered then show error message
             alert("Error: All field are mandatory!");
             return;
         } else {
+            // prepare the data for sending through api in fetch
             const dataObject = {
                 "first_name": fname,
                 "last_name": lname,
@@ -47,6 +52,7 @@ const CustomerForm = ({ update, oldData }) => {
                 "phone": phone
             };
 
+            //prepare the extra configuration
             const requestOptions = {
                 method: update ? 'PUT' : 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -54,6 +60,8 @@ const CustomerForm = ({ update, oldData }) => {
             };
 
             let res;
+
+            //now check we going to do update or add new data
             if (update) {
                 res = await fetch("http://127.0.0.1:8080/customer/update", requestOptions);
             } else {
@@ -62,6 +70,7 @@ const CustomerForm = ({ update, oldData }) => {
             const data = await res.json();
             alert(data.message);
 
+            //if all ok then navigate to dashboard for rendering updated data from database
             if (res.status == 201) {
                 navigate("/dashboard", { replace: true });
             }

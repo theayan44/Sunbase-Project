@@ -8,8 +8,11 @@ const AddCustomer = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        // check if user logged in or not
         if (localStorage.getItem("loginCredentials") === null) {
             alert("You've to login first!");
+
+            // if not logged in then navigate to login page
             navigate("/", { replace: true });
         }
     }, []);

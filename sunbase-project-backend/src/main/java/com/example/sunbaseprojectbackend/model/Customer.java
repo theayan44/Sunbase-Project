@@ -35,6 +35,7 @@ public class Customer {
     @Column(nullable = false)
     String state;
 
+//    this is use as the unique identity of a customer
     @Column(nullable = false, unique = true)
     String email;
 

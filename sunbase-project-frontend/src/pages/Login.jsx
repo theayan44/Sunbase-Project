@@ -6,8 +6,11 @@ const Login = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        // check if user already logged in or not
         if (localStorage.getItem("loginCredentials") !== null) {
             alert("You already logged in!");
+
+            // if already logged in then navigate directly to dashboard
             navigate("/dashboard", { replace: true });
         }
     }, [])

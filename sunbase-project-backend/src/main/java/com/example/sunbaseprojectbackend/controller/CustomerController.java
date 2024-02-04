@@ -20,6 +20,7 @@ public class CustomerController {
     CustomerService customerService;
 
 
+//    for adding new customer
     @PostMapping("/add")
     public ResponseEntity addCustomer(@RequestBody Customer newCustomer){
         try {
@@ -37,6 +38,7 @@ public class CustomerController {
     }
 
 
+//    for updating existing customer
     @PutMapping("/update")
     public ResponseEntity updateCustomer(@RequestBody Customer updatedCustomer){
         try {
@@ -53,6 +55,8 @@ public class CustomerController {
         }
     }
 
+
+//    for get all customer list
     @GetMapping("/get/all")
     public ResponseEntity getAllCustomer(){
         try {
@@ -66,6 +70,7 @@ public class CustomerController {
     }
 
 
+    //for get customer based on email id
     @GetMapping("/get/{email}")
     public ResponseEntity getCustomer(@PathVariable("email") String email){
         try {
@@ -83,6 +88,7 @@ public class CustomerController {
     }
 
 
+//    for deleting customer
     @DeleteMapping("/delete/{email}")
     public ResponseEntity deleteCustomer(@PathVariable("email") String email){
         try {

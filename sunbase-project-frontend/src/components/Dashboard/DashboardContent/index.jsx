@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Button from "../../Common/Button"
 import SearchBar from "../../Common/SearchBar";
 import CustomerTable from "../CustomerTable"
@@ -9,10 +9,13 @@ import { useState } from "react";
 
 const DashboardContent = () => {
     const [searchType, setSearchType] = useState("");
-    const { navigate } = useNavigate();
 
     async function handleSyncData() {
+        // useing try catch for handling server error
         try {
+
+            // first we have to get the bearer token
+            // prepare data for passing in fetch
             const dataObject = {
                 "login_id": "test@sunbasedata.com",
                 "password": "Test@123"
@@ -26,7 +29,9 @@ const DashboardContent = () => {
             const tokenResponse = await fetch("https://qa.sunbasedata.com/sunbase/portal/api/assignment_auth.jsp", requestOptions);
             const tokenData = await tokenResponse.json();
 
+            // check if we got the bearer token or not
             if (tokenData.access_token != undefined) {
+                // if we get the bearer token, now prepare extra configuration and set in fetch to get customer datas from api
                 const requestOptionsForSyncData = {
                     method: 'GET',
                     headers: {
@@ -39,9 +44,12 @@ const DashboardContent = () => {
                 const syncResponse = await fetch("https://qa.sunbasedata.com/sunbase/portal/api/assignment_auth.jsp", requestOptionsForSyncData);
                 const syncData = await syncResponse.json();
 
+                // after we got the data loop on each data and check for updation or new addition
                 syncData.map(async (item) => {
+                    // api call for checking the email id already exist in database or not
                     const res = await fetch(`http://127.0.0.1:8080/customer/get/${item.email}`);
 
+                    // prepare the data object for sending in fetch with the api call
                     const dataObject = {
                         "first_name": item.first_name,
                         "last_name": item.last_name,
@@ -54,7 +62,7 @@ const DashboardContent = () => {
                     };
 
                     if (res.status == 200) {
-                        // update data
+                        // if reponse is OK, means email already exist, so update the data
                         const requestOptions = {
                             method: 'PUT',
                             headers: { 'Content-Type': 'application/json' },
@@ -62,7 +70,7 @@ const DashboardContent = () => {
                         };
                         await fetch("http://127.0.0.1:8080/customer/update", requestOptions);
                     } else {
-                        //add new data
+                        //if not exist, then add new data
                         const requestOptions = {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
@@ -74,6 +82,7 @@ const DashboardContent = () => {
                 window.location.reload();
             }
         } catch (error) {
+            // if any server error occured during api call, then show the error message
             alert("Sorry facing server issue while sync data!");
         }
     }
